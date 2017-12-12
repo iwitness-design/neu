@@ -1,0 +1,23 @@
+/**
+ * no good reason for a lot of these to be in a media block at all,
+ * but that's how the parent does it so we must do the same to override
+ */
+@media screen and (min-width: 481px) {
+
+  #buddypress div#subnav.item-list-tabs ul li.selected a,
+  #buddypress div#subnav.item-list-tabs ul li.current a {
+    font-weight: unset;
+  }
+
+  .header-account-login .pop .links > .current-menu-item > a,
+  .header-account-login .pop .links > .current-menu-parent > a,
+  .header-account-login .pop .bp_components ul li ul li.menupop.active > a {
+    background-color: unset;
+  }
+
+  .header-account-login .pop .bp_components .menupop:not(#wp-admin-bar-my-account) > .ab-sub-wrapper li.active a,
+  .header-account-login .pop .links li > .sub-menu li.current-menu-item a,
+  .header-account-login .pop .links li > .sub-menu li.current-menu-parent a {
+    color: unset;
+  }
+}

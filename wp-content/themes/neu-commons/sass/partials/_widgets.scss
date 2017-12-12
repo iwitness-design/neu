@@ -1,0 +1,86 @@
+.panel-grid-cell .widget {
+  border: 1px solid $menu-panel-background-color;
+  border-radius: 4px;
+  padding: 15px;
+
+  .panel-widget-style {
+    // TODO can we prevent visual composer from adding inline styles in the first place?
+    padding: 0 !important; // override inline style.
+  }
+}
+
+.boxed #primary .widget-area #groups-list li .item-avatar img,
+.boxed #primary .widget-area #members-list li .item-avatar img,
+.secondary-inner #item-actions #group-mods img.avatar,
+.secondary-inner #item-actions #group-admins img.avatar,
+.widget-area .widget ul.item-list img.avatar {
+  border-width: 0;
+}
+
+
+// sitewide-activity widget overrides
+.swa-activity-comments div.acomment-avatar img,
+.swa-activity-list  div.swa-activity-avatar img.avatar {
+  border-radius: 50%;
+}
+.swa-pagination {
+  display: none;
+}
+.swa-activity-list .swa-activity-header a:first-child,
+.swa-activity-list span.highlight {
+  background-color: inherit;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.swa-activity-list .swa-activity-header a:first-child:hover,
+.swa-activity-list a {
+  // plugin uses !important for some reason so we have to as well
+  color: $link-color !important;
+  background-color: unset !important;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.swa-activity-list li.mini,
+ul.swa-activity-list li {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+#swa-whats-new-options {
+  line-height: 38px; // match select height so label is vertically aligned to middle
+
+  > div {
+    display: inline;
+  }
+
+  #whats-new-submit {
+    float: right;
+  }
+}
+
+.logged-in .hide-if-logged-in,
+body:not(.logged-in) .hide-if-logged-out,
+.active-session.non-member .hide-if-active-session {
+  display: none;
+}
+
+// hide activity timestamps
+.swa-activity-list .view.activity-time-since {
+  display: none;
+}
+
+/* hide group avatars in activity streams & clear content so it is not pushed aside */
+.swa-activity-list .avatar[class*=group],
+.activity .avatar[class*=group] {
+  display: none;
+}
+.swa-activity-list .swa-activity-content .swa-activity-inner {
+  clear: both;
+}
+
+div.swa-activity-comments > ul {
+  background-color: inherit;
+}

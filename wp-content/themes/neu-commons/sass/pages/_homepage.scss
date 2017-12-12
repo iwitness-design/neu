@@ -1,0 +1,15 @@
+#post-238 {
+  padding-top: 15px;
+}
+
+.panel-grid:first-child {
+  padding-top: 0;
+}
+
+// siteorigin widget slider overrides
+.sow-slider-base ul.sow-slider-images li.sow-slider-image {
+  z-index: 1 !important; // don't cover profile menu/header
+}
+.sow-slider-base .sow-slide-nav {
+  display: none !important; // hide arrows on slider
+}

@@ -1,0 +1,252 @@
+#mastlogo {
+  background-color: white;
+}
+
+#masthead {
+  .header-navigation a {
+    color: $link-color;
+  }
+
+  a {
+    color: black;
+
+    &.user-link:hover {
+      text-decoration: none; // prevent underline on avatar dropdown trigger
+    }
+  }
+
+  .logout a {
+    color: $button-color;
+    font-weight: normal;
+  }
+}
+
+.header-inner .left-col a:hover i,
+#searchsubmit:hover i {
+  transform: unset;
+}
+
+.is-desktop #header-menu > ul > li,
+#search-open {
+  height: 37px;
+  line-height: 37px;
+}
+body:not(.is-mobile) #right-panel {
+  margin-top: 65px;
+}
+body:not(.left-menu-open)[data-logo="1"] .site-header .left-col .table {
+  height: 65px;
+}
+body:not(.left-menu-open)[data-logo="1"] #search-open,
+body:not(.left-menu-open)[data-logo="1"] .header-account-login,
+body:not(.left-menu-open)[data-logo="1"] #wp-admin-bar-shortcode-secondary .menupop,
+body:not(.left-menu-open)[data-logo="1"] .header-notifications {
+  height: 37px;
+  line-height: 37px;
+}
+body.is-desktop:not(.left-menu-open)[data-logo="1"] #left-panel-inner,
+body.is-desktop.left-menu-open[data-logo="1"] #left-panel-inner {
+  padding-top: 65px;
+}
+
+body:not(.left-menu-open)[data-logo="1"] #mastlogo {
+  padding: 0;
+}
+
+.widget-area .widget .bp-login-widget-register-link a,
+.widget-area .widget a.sidebar-wp-register,
+.widget-area .widget_bp_core_login_widget a.logout,
+.widget-area .widget_tag_cloud a,
+.widget-area .widget #sidebarme ul.sidebarme-quicklinks li.sidebarme-profile a,
+.bbp-logged-in a.button,
+.right-col .register,
+.right-col .login,
+.header-account-login .pop .logout a {
+  padding-bottom: 8px; /* because of odd (non-even) padding-top, there's a 1px bottom gap without this */
+}
+
+.header-outher {
+  //box-shadow: none;
+  /* border-bottom: 1px solid rgba(0,0,0,0.11); */
+  box-shadow: $box-shadow-material;
+}
+
+/* hide member dropdown in responsive adminbar */
+#wpadminbar li#wp-admin-bar-my-account {
+  display: none;
+}
+
+.site-header .header-inner .right-col {
+  background-color: white;
+  color: black;
+}
+
+/* hide my-account on wp-toolbar */
+#wp-admin-bar-top-secondary #wp-admin-bar-my-account, #wp-admin-bar-top-secondary #wp-admin-bar-bp-notifications {
+  display: none;
+}
+
+/* hide update notifications on masthead */
+#masthead .header-notifications.updates {
+  display: none;
+}
+
+/* reduce padding/margin of various menu edge cases to be consistent with overall reduced menu padding */
+.header-account-login .pop #dashboard-links {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+.header-account-login .pop #adminbar-links {
+  padding-top: 0;
+}
+.header-account-login .pop .logout {
+  margin-top: 0;
+}
+
+/* no padding on submenu wrappers to save some more space */
+.header-account-login .pop .network-menu,
+.header-account-login .pop .bp_components .menupop:not(#wp-admin-bar-my-account) > .ab-sub-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+/* search box can overflow here, ensure popouts are topmost */
+.header-notifications .pop,
+.header-notifications .ab-sub-wrapper {
+  z-index: 2;
+}
+
+.header-outher {
+  margin-left: 65px;
+}
+#mastlogo {
+  width: 65px;
+}
+#mastlogo #logo img {
+  width: auto;
+}
+#mastlogo #logo .site-title {
+  display: inline;
+  vertical-align: top;
+}
+#mastlogo #logo .site-title a:first-child img,
+#mastlogo #logo .site-title a:last-child img {
+  height: 55px;
+  padding: 5px 12px;
+}
+body:not(.left-menu-open) #mastlogo #logo .site-title a:first-child img {
+  padding: 5px;
+}
+
+/* reduce top menubar height */
+.site-header .left-col .table {
+  height: 65px;
+}
+.header-links {
+  height: 37px;
+}
+.header-navigation > div > ul {
+  height: 37px;
+}
+#wp-admin-bar-shortcode-secondary .menupop,
+.header-notifications {
+  height: 37px;
+  line-height: 37px;
+}
+.header-account-login {
+  height: 37px;
+  line-height: 37px;
+}
+.header-account-login img {
+  width: 25px;
+  height: 25px;
+}
+#wp-admin-bar-shortcode-secondary .ab-sub-wrapper,
+.header-notifications .pop,
+.header-account-login .pop {
+  top: 37px;
+}
+body #mastlogo {
+  min-height: 37px;
+}
+/* end of top menubar height reduction */
+
+/* try not to truncate user name in top menubar */
+.header-account-login .user-link span.name {
+  width: auto;
+}
+
+/* show both small & large logos when left menu is expanded */
+body.left-menu-open .site-title.small,
+body.left-menu-open #mastlogo #logo img.small {
+  display: block;
+}
+body.left-menu-open #mastlogo #logo .site-title a:first-child img {
+  width: 54px;
+}
+body.left-menu-open #mastlogo #logo .site-title a:last-child img {
+  width: 105px;
+}
+body[data-logo="1"] #mastlogo {
+  padding: 0;
+}
+div#logo {
+  height: 65px;
+  line-height: normal;
+  padding: 0 5px;
+}
+body:not(.left-menu-open)[data-logo="1"] div#logo {
+  padding: 0;
+}
+
+.menu-panel ul li a span.display-name {
+  color: unset;
+  line-height: 45px; // center vertically to fit avatar
+}
+
+a.sidebar-btn.fa:hover {
+  text-decoration: none;
+}
+
+.bp_components ul li ul li.menupop.active {
+  background-color: unset;
+}
+
+#titlebar-search {
+  display: table-cell !important;
+}
+
+.search .page-header {
+  display: none;
+}
+
+#titlebar-search #s {
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  float: right;
+  height: 2em;
+  margin: 14px 70px 0 0;
+  padding: 0 1em;
+  width: 80%;
+}
+body #titlebar-search {
+  position: relative;
+  width: 50%;
+  form .search-wrapper:before {
+    display: none;
+  }
+  #search-open {
+    display: none;
+  }
+  #searchform {
+    display: block !important;
+    opacity: 1 !important;
+  }
+}
+#search-close {
+  display: none;
+}
+#searchsubmit {
+  box-shadow: none;
+}
+

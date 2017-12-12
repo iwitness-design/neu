@@ -1,0 +1,91 @@
+.gform_wrapper .ginput_container input[type=text],
+.ginput_container .gform_wrapper input[type=url],
+.ginput_container .gform_wrapper input[type=email],
+.gform_wrapper .ginput_container input[type=tel],
+.gform_wrapper .ginput_container input[type=number],
+.gform_wrapper .ginput_container input[type=password],
+.gform_wrapper .ginput_container textarea,
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+  background-color: white;
+  border: 1px solid $menu-panel-background-color;
+  box-shadow: unset;
+
+  &:hover,
+  &:focus {
+    background-color: white;
+    border-color: darken($menu-panel-background-color, 10);
+  }
+}
+
+.groups-members-search input[type="text"] {
+  border: none;
+}
+
+.dir-search input[type="text"] {
+  border: unset;
+}
+
+input[type="radio"].styled + span,
+input[type="radio"].styled + label,
+input[type="radio"].styled + strong,
+input[type="checkbox"].styled + span,
+input[type="checkbox"].styled + label,
+input[type="checkbox"].styled + strong,
+#buddypress .standard-form div.checkbox label,
+#buddypress .standard-form div.radio label {
+  color: black;
+}
+
+// use browser default styles for checkboxes & radios rather than parent theme images
+#buddypress table.notifications input,
+#send_message_form input[type="checkbox"],
+#profile-edit-form input[type="checkbox"],
+#profile-edit-form input[type="radio"],
+#message-threads input,
+#settings-form input[type="radio"],
+#create-group-form input[type="radio"],
+#create-group-form input[type="checkbox"],
+#group-settings-form input[type="radio"],
+#group-settings-form input[type="checkbox"],
+#new-post input[type="checkbox"],
+.bbp-form input[type="checkbox"],
+.bbp-form .input[type="radio"],
+.register-section .input[type="radio"],
+.register-section input[type="checkbox"],
+.message-check,
+#select-all-messages,
+input[type="checkbox"].styled,
+input[type="radio"].styled {
+  opacity: 1;
+}
+
+// these are where the parent theme inserts image replacements for checkboxes/radios
+label strong:before,
+label strong:after,
+input[type="checkbox"].styled + span:before,
+input[type="checkbox"].styled + label:before,
+input[type="checkbox"].styled + strong:before,
+input[type="checkbox"].styled + span:after,
+input[type="checkbox"].styled + label:after,
+input[type="checkbox"].styled + strong:after,
+input[type="radio"].styled + span:after,
+input[type="radio"].styled + label:after,
+input[type="radio"].styled + strong:after,
+input[type="radio"].styled + span:before,
+input[type="radio"].styled + label:before,
+input[type="radio"].styled + strong:before {
+  opacity: 0;
+}
+
+// overrides for site (blog) creation using some inline form inputs
+.create-blog #buddypress #blogname {
+  display: inline;
+  width: unset;
+}

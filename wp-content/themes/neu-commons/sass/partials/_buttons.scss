@@ -1,0 +1,103 @@
+.btn,
+button,
+input[type="submit"],
+input[type="button"]:not(.button-small),
+input[type="reset"],
+article.post-password-required input[type=submit],
+li.bypostauthor cite span,
+a.button,
+#create-group-form .remove,
+#buddypress ul.button-nav li a,
+#buddypress div.generic-button a,
+#buddypress .comment-reply-link,
+.entry-title a.button,
+span.create-a-group > a,
+#buddypress div.activity-comments form input[disabled],
+#buddypress #groups-stream div.generic-button a,
+#buddypress #groups-list div.generic-button a,
+.btn.shadow,
+#masthead .right-col .register,
+#masthead .right-col .login,
+.header-account-login .pop .logout a,
+.bbp-topic-details #subscription-toggle a,
+.bbp-forum-details #subscription-toggle a,
+#members-stream li .action div.generic-button a,
+#members-list li .action div.generic-button a,
+#friend-list li .action div.generic-button:nth-child(2n) a,
+#members-stream li .action div.generic-button:nth-child(2n) a,
+#members-list li .action div.generic-button:nth-child(2n) a,
+#buddypress .activity-list li.load-more a,
+#buddypress .activity-list li.load-newest a,
+#buddypress .group-header-meta .group-subscription-options.generic-button a,
+#buddypress #groups-dir-list .group-subscription-options.generic-button a,
+#buddypress #groups-list .group-subscription-options.generic-button a,
+div#buddypress div#subnav.item-list-tabs ul li a,
+#buddypress #subnav #invite-new-members,
+#buddypress #subnav #sent-invites,
+.bp-user.messages #buddypress div#subnav.item-list-tabs ul li:first-child a,
+.directory #buddypress div.item-list-tabs ul#bp-docs-all-docs li:not(#members-order-select):not(#groups-order-select):not(#blogs-order-select) a {
+  @include button-material();
+}
+
+div#buddypress div#subnav.item-list-tabs ul li.selected a,
+div#buddypress div#subnav.item-list-tabs ul li.current a {
+  @include button-material-hover();
+}
+
+#item-buttons button.more-items-btn,
+#main-button div {
+  box-shadow: none;
+}
+
+.btn.long {
+  width: 100%;
+}
+
+/* preserve tinymce default button styles */
+.wp-editor-wrap {
+  button,
+  input[type="button"] {
+    box-shadow: none;
+
+    &:hover {
+      background: #f5f5f5;
+      color: initial;
+    }
+  }
+}
+#bbpress-forums div.bbp-the-content-wrapper input {
+  margin: 0 2px;
+}
+
+// special snowflakes
+#buddypress .standard-form div.submit #group-creation-previous {
+  color: unset;
+  background-color: unset;
+  border: unset;
+}
+
+.search #ep-bp-facets span.active {
+  background-color: $button-background-color;
+  border-color: $button-background-color;
+  color: $button-color;
+}
+
+// not actually buttons yet. soon
+// TODO button-ize
+.header-account-login .pop #dashboard-links .menupop a span,
+.header-account-login .pop ul > li > .ab-sub-wrapper > ul li a span,
+#buddypress div#item-nav .item-list-tabs ul li a span,
+.item-list li .item-meta .count,
+body.activity:not(.bp-user)  .item-list-tabs ul li a span,
+.dir-form .item-list-tabs ul li a span {
+  background-color: $button-background-color;
+}
+
+// some message buttons are not like the others...
+.bp-user.messages #buddypress div#subnav.item-list-tabs ul li.current a {
+  width: 158px; // since we unset width above, this just restores the default parent width
+
+  &:after {
+    display: none;
+  }
+}

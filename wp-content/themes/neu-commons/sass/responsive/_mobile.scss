@@ -1,0 +1,30 @@
+// override mobile top menu colors to match desktop
+.is-mobile .sidebar-btn.fa {
+  color: $menu-panel-color;
+}
+
+#buddypress #mobile-item-nav ul li {
+  background-color: $menu-panel-background-color;
+
+  a {
+    color: $menu-panel-color;
+  }
+
+  &:active,
+  &.current,
+  &.selected {
+    background-color: $menu-panel-background-color-hover;
+    color: $menu-panel-color-hover;
+  }
+}
+
+#mobile-item-nav ul li:before {
+  color: $menu-panel-icon-color;
+}
+
+/* increase top padding on directory item titles to make room for avatars */
+.mobile #primary #members-stream li div.item,
+.mobile #primary #members-list li div.item,
+.mobile #primary #buddypress ul.item-list li div.item {
+  padding: 50px 0 20px;
+}

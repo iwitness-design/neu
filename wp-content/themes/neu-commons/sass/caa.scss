@@ -1,0 +1,23 @@
+@import 'variables';
+
+$font-family-body: "Myriad Pro", proxima-nova, Verdana, sans-serif;
+$font-family-header: $font-family-body;
+
+$button-background-color: #680c2c;
+$button-color: white;
+
+@mixin button-material-hover() {
+  background-color: #877682;
+  box-shadow: $box-shadow-material;
+  color: $button-color;
+  text-decoration: none;
+
+  &:before {
+    content: none;
+  }
+}
+
+$link-color: #7fb9d0;
+$link-color-hover: #877682;
+
+@import 'global';

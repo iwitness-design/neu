@@ -1,0 +1,57 @@
+.is-mobile.profile #item-header #item-header-content #item-meta {
+  height: unset;
+}
+
+// Hide others' followers count from one's own listing of followers
+.dir-list.members.follow.followers .item-meta span {
+  display: none;
+}
+
+// add spacing to left-column buttons on messaging pages
+.bp-user.messages #buddypress div#subnav.item-list-tabs ul li a {
+  margin-bottom: 10px;
+}
+
+#buddypress #mobile-item-nav ul li#members-followers-personal-li,
+#buddypress div#item-nav .item-list-tabs ul li a#user-members-followers {
+  display: none;
+}
+
+.profile .avatar-wrap,
+.xprofile #buddypress div#item-header-avatar img.avatar {
+  width: 150px;
+  height: 150px;
+  max-width: none;
+}
+
+.site #invite-anyone-steps > li::before {
+  background-color: $menu-panel-background-color;
+  color: $menu-panel-color;
+}
+
+.email_selection, .registered_emails {
+
+	& ul {
+		padding: 5px 0;
+	}
+
+	& li {
+		padding: 5px 0;
+	}
+
+}
+
+#settings-form-general .submit {
+	padding-top: 10px !important;
+}
+
+.atwho-view ul li small {
+  color: #000 !important;
+}
+
+/* this should never show up but for unknown reasons it is happening to certain users.
+ * hide it always with this theme for good measure.
+ **/
+#hcommons-network-footer {
+  display: none;
+}

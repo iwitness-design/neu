@@ -1,0 +1,191 @@
+.society-mla .body {
+  font-family: proxima-nova, Helvetica, sans-serif
+}
+/*homepage-buttons*/
+.society-mla .btn {
+  color: #000;
+  text-align: left;
+  margin:auto;
+  width: 100%;
+}
+
+/*other buttons*/
+.society-mla #buddypress .generic-button a{
+  color: #07d;
+}
+
+/*widgets*/
+.society-mla .text-widget {
+  max-width:50%;
+}
+
+.society-mla .widget-title .h3 {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: proxima-nova, Verdana, sans-serif;
+}
+
+/*Getting rid of the teal*/
+.society-mla .tablet .menu-panel #nav-menu > ul > li.dropdown > a:before,
+.society-mla .tablet .menu-panel #header-menu > ul > li.dropdown > a:before,
+.society-mla .tablet .menu-panel .bp_components ul li ul li.menupop.dropdown > a:before,
+.society-mla body:not(.tablet) .menu-panel .screen-reader-shortcut:hover:before,
+.society-mla body:not(.tablet) .menu-panel #nav-menu > ul > li:hover > a:before,
+.society-mla body:not(.tablet) .menu-panel #header-menu > ul > li:hover > a:before,
+.society-mla body:not(.tablet) .menu-panel .bp_components ul li ul li.menupop:hover > a:before {
+  color: #cc0066;
+}
+
+.society-mla .header-navigation li.hideshow ul,
+.society-mla .header-account-login .pop .bp_components .menupop:not(#wp-admin-bar-my-account) > .ab-sub-wrapper:before, .header-account-login .pop .links li > .sub-menu:before,
+.society-mla .header-account-login .pop .bp_components .menupop:not(#wp-admin-bar-my-account) > .ab-sub-wrapper,
+.society-mla .header-account-login .pop .links li > .sub-menu,
+.society-mla .bb-global-search-ac.ui-autocomplete,
+.society-mla .site-header #wp-admin-bar-shortcode-secondary .ab-sub-wrapper,
+.society-mla .header-notifications .pop, .header-account-login .pop,
+.society-mla .header-inner .search-wrap,
+/*.society-mla .header-inner .right-col {
+background-color: #0098a6;
+}
+/*
+Hack the text color in the titlebar because display was white on white.
+ */
+  .society-mla .header-inner .left-col .header-navigation ul li a {
+    color: #000000 !important;
+  }
+
+  .society-mla .header-inner .left-col .header-navigation ul li a:hover {
+    color: #680048 !important;
+  }
+
+  /*
+  Set adminbar background
+   */
+  .society-mla #dashboard-links a:hover, #adminbar-links a:hover, .header-notifications.all-notifications .pop a:hover {
+    background-color: #006B75;
+  }
+
+  /*
+  Set adminbar text color
+   */
+  .society-mla #dashboard-links a, #adminbar-links a, .header-notifications.all-notifications .pop a {
+    color: #ffffff !important;
+  }
+
+  .society-mla .header-links .menu-toggle > .fa-bars {
+    color: black;
+  }
+
+  .society-mla #titlebar-search #search-open {
+    background-color: white;
+  }
+
+  .society-mla #titlebar-search #search-open > .fa-search {
+    color: black;
+  }
+
+  .society-mla .header-inner .right-col .table {
+    background-color: white;
+    color: black !important;
+  }
+
+  .society-mla .header-account-login .pop, .right-col.open {
+    background-color: white;
+    color: black !important;
+  }
+  /***Nicky changed color from AC6622 in line 76***/
+  #dashboard-links li.menupop > a.ab-item:hover,
+  #adminbar-links ul li > a:hover,
+  .ab-submenu .menupop > a:hover,
+  #adminbar-links ul li > a:hover,
+  #dashboard-links ul li > a:hover,
+  #dashboard-links .menupop .ab-submenu li > a:hover{
+    background-color: #adadad;
+    color: black;
+  }
+
+  #dashboard-links .menupop, #dashboard-links .menupop > a, #dashboard-links .menupop > .ab-sub-wrapper, #dashboard-links .menupop > .ab-sub-wrapper a,
+  #wp-admin-bar-my-account-buddypress .ab-sub-wrapper, #wp-admin-bar-my-account-buddypress .ab-sub-wrapper > a {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  .society-mla .header-notifications .pop > a:hover {
+    background-color: transparent !important;
+  }
+
+  .society-mla .header-notifications .pop {
+    background-color: white !important;
+    color: black !important;
+  }
+  /***Nicky changed color from AC6622 below***/
+  .society-mla .header-notifications .pop:hover {
+    background-color: #adadad !important;
+  }
+
+  /**** END PUMPKIN THEME **/
+
+  /*** WHITE THEME **/
+
+  .society-mla a.notification-link.fa.fa-bell {
+    color: black !important;
+  }
+
+  .society-mla .header-account-login .name {
+    color: black;
+  }
+
+  .society-mla .right-col {
+    background-color: white !important;
+  }
+
+  .society-mla .header-notifications.all-notifications .pop > a {
+    color: black !important;
+  }
+
+  .society-mla #wp-admin-bar-my-account-buddypress li a {
+    color: black !important;
+  }
+
+  .society-mla .right-col .table {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  /* Why are selectors light grey? */
+  .society-mla .selected-tab, .society-mla .btn.inverse, .society-mla .buddyboss-select-inner {
+    color: #07d;
+    border-color: #07d;
+  }
+
+  /* tab border top */
+  .header-navigation li.hideshow > ul, .header-navigation .sub-menu, body.activity:not(.bp-user) .item-list-tabs ul li, .logged-in .dir-form .item-list-tabs ul li, .dir-form .item-list-tabs ul li:last-child {
+    border-top: 2px solid black;
+  }
+
+  /* tab border color */
+  .header-navigation li.hideshow > ul, .header-navigation .sub-menu, body.activity:not(.bp-user) .item-list-tabs ul li, .sap-publish-popup .button-primary, .logged-in .dir-form .item-list-tabs ul li, .dir-form .item-list-tabs ul li:last-child {
+    border-color: black !important;
+  }
+
+  /* Why is the register button text white? */
+  .society-mla .right-col .register, .society-mla .right-col .login, .society-mla .header-account-login .pop .logout a {
+    color: black !important;
+  }
+
+  /* Other buttons are all hard to see */
+  .btn, button, input[type="submit"], input[type="button"]:not(.button-small), input[type="reset"], article.post-password-required input[type=submit], li.bypostauthor cite span, a.button, #create-group-form .remove, #buddypress ul.button-nav li a, #buddypress div.generic-button a, #buddypress .comment-reply-link, .entry-title a.button, span.create-a-group > a, #buddypress div.activity-comments form input[disabled], .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover {
+    color: #07d;
+  }
+
+  /* List style on directory page selectors */
+  .entry-content ul {
+    list-style: none;
+  }
+
+  /* Why did our page headers disappear on groups, members, sites and activity? */
+  .buddypress:not(.error404) .entry-header {
+    display: block;
+  }
+  /* Why no header padding on groups, members, sites directory pages? */

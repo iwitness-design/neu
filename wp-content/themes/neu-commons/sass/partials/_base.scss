@@ -1,0 +1,84 @@
+#mobile-header, // parent theme applies a bg color directly here which overrides body. override it right back
+body {
+  background-color: $menu-panel-background-color; // menu doesn't always extend to bottom of screen, this covers that space
+  font-family: $font-family-body;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.page-title,
+.widget-title,
+.entry-content th,
+.comment-content th,
+h1.main-title,
+.group-info li p:first-child,
+#item-statistics .numbers span p:first-child,
+#bbpress-forums fieldset.bbp-form legend {
+  font-family: $font-family-header;
+  font-weight: 300;
+  text-transform: none !important; // always sentence case everywhere!!
+}
+
+a {
+  color: $link-color;
+
+  &:hover {
+    color: $link-color-hover;
+    text-decoration: underline;
+  }
+}
+
+#footer-links a:hover {
+  color: $link-color;
+}
+
+#buddypress #message.info,
+div#sitewide-notice #message.info {
+  margin-top: 15px;
+}
+
+// fewer transitions
+#mastlogo,
+.menu-panel,
+.header-outher,
+#left-panel *,
+#nav-menu > ul > li > a,
+#left-panel-inner #scroll-area,
+#right-panel-inner,
+.menu-panel #header-menu > ul li a:before,
+.menu-panel #nav-menu > ul > li > a:not(.open-submenu):before,
+.menu-panel .screen-reader-shortcut:before,
+.menu-panel .bp_components ul li ul li > .ab-item:before {
+  transition-property: none;
+}
+
+// template notices
+div.bbp-template-notice {
+  background-color: white;
+  border: 1px solid black;
+
+  p {
+    color: black;
+  }
+
+  a {
+    color: $link-color;
+  }
+
+  &.info,
+  &.info * {
+    background-color: $button-background-color;
+    color: $button-color;
+    text-align: left;
+  }
+}
+
+.bp-user #buddypress #item-header div#message,
+.group-single #buddypress #item-header div#message {
+  animation-duration: 10s;
+  opacity: 1;
+}

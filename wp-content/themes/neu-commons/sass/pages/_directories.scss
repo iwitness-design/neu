@@ -1,0 +1,275 @@
+.directory {
+  .entry-content li,
+  .comment-content li,
+  .mu_register li {
+    margin: 0; // fixes a bug in parent where filter <select> is erroneously indented
+  }
+}
+
+.groups-members-search input[type="text"],
+#buddypress div.dir-search input[type="text"],
+#bbpress-forums #bbp-search-index-form input#bbp_search,
+#buddypress #search-message-form input[type="text"] {
+  background-color: white;
+}
+
+#buddypress .groups-members-search input[type="submit"],
+#buddypress div.dir-search input[type="submit"],
+#bbpress-forums #bbp-search-index-form input#bbp_search_submit,
+#buddypress #search-message-form input#messages_search_submit {
+  background-color: white;
+  border: unset; // clear button rule
+}
+
+.buddypress .entry-header {
+  display: block;
+  margin-bottom: 20px;
+  margin-left: 70px;
+  text-transform: uppercase;
+  font-size: 300%;
+}
+
+body.activity:not(.bp-user) .item-list-tabs ul li,
+body.activity:not(.bp-user)  .item-list-tabs ul li:last-child,
+.dir-form .item-list-tabs ul li,
+.dir-form .item-list-tabs ul li:last-child,
+.directory #buddypress div.item-list-tabs ul li:not(#members-order-select):not(#groups-order-select):not(#blogs-order-select),
+#buddypress div#group-create-tabs ul > li,
+#buddypress div#group-create-tabs ul > li:first-child:not(:last-child) {
+  background-color: white;
+  border-color: $menu-panel-background-color;
+  border-width: 1px;
+  color: $menu-panel-color;
+  font-weight: 300;
+  text-transform: none;
+
+  a {
+    color: $link-color;
+  }
+
+  &.current,
+  &.selected {
+    a {
+      color: black;
+      font-weight: 600;
+      //text-decoration: underline;
+    }
+  }
+}
+
+.buddyboss-select-inner {
+  background-color: white;
+  border-color: rgba(0, 0, 0, 0.11); // dropdowns etc. are not quite links. match search border instead
+  border-width: 1px;
+  color: black;
+  text-transform: none;
+}
+
+.selected-tab,
+.buddyboss-select-inner span,
+body.activity:not(.bp-user) .item-list-tabs ul li a,
+.dir-form .item-list-tabs ul li a {
+  font-weight: 300;
+  text-transform: none;
+}
+
+.selected-tab:after,
+.buddyboss-select-inner:after {
+  color: rgba(0, 0, 0, 0.11);
+}
+
+#bbp-search-index-form,
+#search-message-form,
+.groups-members-search,
+#buddypress div.dir-search {
+  border-color: rgba(0, 0, 0, 0.11);
+}
+
+.groups-members-search input[type="text"],
+#buddypress div.dir-search input[type="text"],
+#bbpress-forums #bbp-search-index-form input#bbp_search,
+#buddypress #search-message-form input[type="text"] {
+  color: black;
+}
+
+.item-list-tabs ul {
+  list-style: none;
+  margin: 0;
+}
+
+#members-list .generic-button a {
+  margin-bottom: 5px;
+}
+
+.em-pagination strong,
+.search_results .navigation .wp-paginate .current,
+.pagination .current,
+.bbp-pagination-links span:not(.dots) {
+  border-color: black;
+  color: black;
+}
+
+.em-pagination strong,
+.em-pagination a,
+.search_results .navigation .wp-paginate a,
+.search_results .navigation .wp-paginate span,
+.pagination span,
+.pagination a,
+.bbp-pagination-links span,
+.bbp-pagination-links a {
+  border-color: $link-color;
+  color: $link-color;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+// fix undersized avatars on blogs dir to match sizes on members & groups dirs
+// TODO review & ensure this type of thing doesn't belong in hc-styles with badges
+#primary #blogs-list .item-avatar {
+  width: 95px;
+  position: relative;
+
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 70px;
+    height: 70px;
+  }
+}
+
+// enforce consistent avatar dimensions in activity streams sitewide
+.swa-activity-list img.avatar,
+#buddypress #activity-stream img.avatar {
+  width: 70px;
+  height: 70px;
+  max-width: none;
+}
+
+.em-pagination strong,
+.em-pagination a,
+.search_results .navigation .wp-paginate a,
+.search_results .navigation .wp-paginate span,
+.pagination span,
+.pagination a,
+.bbp-pagination-links span,
+.bbp-pagination-links a,
+.em-pagination strong,
+.search_results .navigation .wp-paginate .current,
+.pagination .current,
+.bbp-pagination-links span:not(.dots) {
+  border: unset;
+}
+
+/* intended to target counts of members, groups, etc. inside tabbed subnav */
+body.activity:not(.bp-user)  .item-list-tabs ul li a span,
+.dir-form .item-list-tabs ul li a span {
+  display: none;
+}
+
+/* compensate for hiding activity messages by expanding width of member meta */
+/* and make all other directory listings consistent in terms of width */
+#primary #blogs-list .item,
+#primary #friend-list li .item,
+#primary #members-stream li .item,
+#primary #members-list li .item {
+  width: 55%;
+}
+#primary #groups-list li .item {
+  width: 70%; // TODO why is this different?
+}
+#primary #groups-list li .item-avatar {
+  width: 105px; // without this limit, avatars stretch and can make row inconsistent depending on visible buttons
+}
+
+// this is empty anyway but parent theme hiding it breaks layout by shifting name/desc over. restore table-cell display
+.directory.groups #primary #buddypress .item-list li .action.bb-hide-elem {
+  display: table-cell;
+}
+
+// inline directory action buttons
+.dir-list .action > div {
+  display: inline-block;
+}
+
+#primary #groups-stream li .item-title a,
+#primary #groups-list li .item-title a {
+  text-transform: none;
+}
+
+#buddypress .group-header-meta .group-subscription-options.generic-button,
+#buddypress #groups-dir-list .group-subscription-options.generic-button,
+#buddypress #groups-list .group-subscription-options.generic-button {
+  background-color: white;
+  border-color: $menu-panel-background-color;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  color: $menu-panel-color;
+  line-height: 1.5em;
+  padding: 15px;
+  width: unset;
+
+  a.group-sub {
+    margin-top: 1em;
+
+    &:first-child {
+      margin-top: unset;
+    }
+  }
+
+  a.group-subscription-close {
+    height: unset;
+    line-height: unset;
+  }
+}
+
+.is-mobile .society-badge:before {
+  margin: 0 5px;
+}
+
+.directory #item-statistics .numbers {
+  display: none;
+}
+
+// hide post images in activity items
+#buddypress .activity-list .activity-content .activity-inner > p > img {
+  display: none;
+}
+
+// extra filters on groups directory
+.filter-status,
+.filter-type {
+  display: inline-block;
+  margin-top: 18px;
+}
+
+// hide block button on member directory
+#members-dir-list .block-member {
+  display: none;
+}
+
+// "Academic Interest: <term>" header
+#members-dir-list > h4 {
+  margin-top: 1em;
+}
+
+#members-dir-list #members-list .activity {
+  display: none !important;
+}
+
+#members-list li {
+  min-height: 3em;
+}
+
+.search .entry-title a {
+  font-size: 18px;
+
+  .post_type {
+    font-family: $font-family-body;
+    font-size: 14px;
+    margin: 10px 10px 0 0;
+  }
+}
