@@ -1,4 +1,5 @@
 <?php
+wp_die('test');
 /**
  * @package Boss Child Theme
  * The parent theme functions are located at /boss/buddyboss-inc/theme-functions.php
