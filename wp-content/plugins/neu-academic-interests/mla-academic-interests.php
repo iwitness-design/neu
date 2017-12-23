@@ -3,7 +3,7 @@
  * Plugin Name: NEU Academic Interests
  * Version: 1.0
  * Description: Implement Academic Interests user taxonomy.
- * Author: mla
+ * Author: iWitness Design (Tanner Moushey). Forked from HCommons.
  *
  * @package Mla_Academic_Interests
  */

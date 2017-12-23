@@ -39,7 +39,7 @@ do_action( 'bp_before_profile_edit_content' );
 	<div class="right">
 		<?php echo $template->get_field( Profile::XPROFILE_FIELD_NAME_ABOUT ) ?>
 		<?php echo $template->get_field( Profile::XPROFILE_FIELD_NAME_EDUCATION ) ?>
-		<div class="work-shared-in-core"><h4>Work Shared in CORE</h4><?php echo $template->get_core_deposits(); ?></div>
+<!--		<div class="work-shared-in-core"><h4>Work Shared in CORE</h4>--><?php //echo $template->get_core_deposits(); ?><!--</div>-->
 		<?php echo $template->get_field( Profile::XPROFILE_FIELD_NAME_PUBLICATIONS ) ?>
 		<?php echo $template->get_field( Profile::XPROFILE_FIELD_NAME_PROJECTS ) ?>
 		<?php echo $template->get_field( Profile::XPROFILE_FIELD_NAME_UPCOMING_TALKS_AND_CONFERENCES ) ?>

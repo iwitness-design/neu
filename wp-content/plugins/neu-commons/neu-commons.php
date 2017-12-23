@@ -27,6 +27,13 @@ require_once ( dirname( __FILE__ ) . '/class.comanage-api.php' );
 require_once ( dirname( __FILE__ ) . '/class.mla-hcommons.php' );
 require_once ( dirname( __FILE__ ) . '/class-logger.php' );
 
+/**
+ * Change BuddyPress default Members landing tab.
+ */
+if ( defined( 'BP_DEFAULT_COMPONENT' ) ) {
+	define('BP_DEFAULT_COMPONENT', 'profile' );
+}
+
 use MLA\Commons\Plugin\Logging\Logger;
 
 global $hcommons_logger;
