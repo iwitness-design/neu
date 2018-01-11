@@ -117,13 +117,14 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
 }
 
 .header-outher {
-  margin-left: 65px;
+  margin-left: 55px;
 }
 #mastlogo {
-  width: 65px;
+  width: 55px;
 }
 #mastlogo #logo img {
   width: auto;
+  max-width: none;
 }
 #mastlogo #logo .site-title {
   display: inline;
@@ -132,7 +133,7 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
 #mastlogo #logo .site-title a:first-child img,
 #mastlogo #logo .site-title a:last-child img {
   height: 55px;
-  padding: 5px 12px;
+  padding: 10px 12px 5px;
 }
 body:not(.left-menu-open) #mastlogo #logo .site-title a:first-child img {
   padding: 5px;
@@ -185,7 +186,8 @@ body.left-menu-open #mastlogo #logo .site-title a:first-child img {
   width: 54px;
 }
 body.left-menu-open #mastlogo #logo .site-title a:last-child img {
-  width: 105px;
+  width: 205px;
+  height: auto;
 }
 body[data-logo="1"] #mastlogo {
   padding: 0;

@@ -11,7 +11,7 @@ $logo_small_id	 = boss_get_option( 'boss_small_logo', 'id' );
 
 $site_title = get_bloginfo( 'name' );
 
-$logo_large	 = ( $show && $logo_id ) ? wp_get_attachment_image( $logo_id, 'full', '', array( 'class' => 'boss-logo large' ) ) : '<span class="bb-title-large">' . $site_title . '</span>';
+$logo_large	 = ( $show && $logo_id ) ? wp_get_attachment_image( $logo_id, 'full', '', array( 'class' => 'boss-logo' ) ) : '<span class="bb-title-large">' . $site_title . '</span>';
 $logo_small	 = ( $show_mini && $logo_small_id ) ? wp_get_attachment_image( $logo_small_id, 'full', '', array( 'class' => 'boss-logo small' ) ) : '<span class="bb-title-small">' . $site_title . '</span>';
 
 // This is for better seo
@@ -22,13 +22,6 @@ $elem = ( is_front_page() && is_home() ) ? 'h1' : 'h2';
 
 	<<?php echo $elem; ?> class="site-title">
 
-	<?php if ( defined( 'HC_SITE_URL' ) ) { ?>
-		<a href="<?php echo HC_SITE_URL; ?>" rel="home">
-	<?php } else { ?>
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-	<?php } ?>
-			<?php echo $logo_small; ?>
-		</a>
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 			<?php echo $logo_large; ?>
 		</a>

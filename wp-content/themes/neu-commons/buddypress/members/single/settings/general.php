@@ -13,7 +13,7 @@ do_action( 'bp_before_member_settings_template' ); ?>
 <br />
 <ul>
 <?php $memberships = bp_get_member_type( bp_displayed_user_id(), false );
-	foreach ( $memberships as $membership ) {
+	foreach ( (array) $memberships as $membership ) {
 		if ( 'beta' !== $membership ) {
 			echo '<li>' . strtoupper( $membership ) . '</li>';
 		}
