@@ -37,7 +37,7 @@ class HC_Suggestions_Widget extends WP_Widget {
 	public function __construct() {
 		parent::__construct(
 			'HC_Suggestions_Widget',
-			'HC Suggestions Widget',
+			'NEU Suggestions Widget',
 			[
 				'classname' => 'HC_Suggestions_Widget',
 				'description' => 'Suggest content to members based on selected terms.',
