@@ -212,7 +212,7 @@ class Template {
 			while ( bp_blogs() ) {
 				bp_the_blog();
 				switch_to_blog( bp_get_blog_id() );
-				$user = get_userdata( bp_core_get_displayed_userid( bp_get_displayed_user_username() ) );
+				$user = get_userdata( bp_displayed_user_id() );
 				if ( ! empty( array_intersect( ['administrator', 'editor'], $user->roles ) ) ) {
 					$society_id = $humanities_commons->hcommons_get_blog_society_id( bp_get_blog_id() );
 					$societies_html[ $society_id ][] = '<li><a href="' . bp_get_blog_permalink() . '">' . bp_get_blog_name() . '</a></li>';
@@ -223,7 +223,7 @@ class Template {
 			ksort( $societies_html );
 
 			foreach ( $societies_html as $society_id => $society_html ) {
-				$html .= '<h5>' . strtoupper( $society_id ) . '</h5>';
+				// $html .= '<h5>' . strtoupper( $society_id ) . '</h5>'; disable the society ID for now
 				$html .= '<ul>' . implode( '', $society_html ) . '</ul>';
 			}
 		}
