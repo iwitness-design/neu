@@ -60,6 +60,11 @@ class Profile {
 	public $xprofile_group;
 
 	public function __construct() {
+
+		if ( ! class_exists( 'BP_XProfile_Group' ) ) {
+			return;
+		}
+
 		self::$plugin_dir = plugin_dir_path( realpath( __DIR__ ) );
 		self::$plugin_templates_dir = trailingslashit( self::$plugin_dir . 'templates' );
 		self::$display_names = [
