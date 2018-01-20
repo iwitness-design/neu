@@ -61,10 +61,6 @@ class Profile {
 
 	public function __construct() {
 
-		if ( ! class_exists( 'BP_XProfile_Group' ) ) {
-			return;
-		}
-
 		self::$plugin_dir = plugin_dir_path( realpath( __DIR__ ) );
 		self::$plugin_templates_dir = trailingslashit( self::$plugin_dir . 'templates' );
 		self::$display_names = [
@@ -98,6 +94,11 @@ class Profile {
 	}
 
 	public function init() {
+
+		if ( ! class_exists( 'BP_XProfile_Group' ) ) {
+			return;
+		}
+
 		foreach ( BP_XProfile_Group::get( [ 'fetch_fields' => true ] ) as $group ) {
 			if ( $group->name === self::XPROFILE_GROUP_NAME && $group->description === self::XPROFILE_GROUP_DESCRIPTION ) {
 				$this->xprofile_group = $group;
