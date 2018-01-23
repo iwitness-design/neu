@@ -93,9 +93,6 @@ class Humanities_Commons {
 		add_shortcode( 'hcommons_society_page', array( $this, 'hcommons_get_society_page_by_slug' ) );
 		add_shortcode( 'hcommons_env_variable', array( $this, 'hcommons_get_env_variable' ) );
 
-		// @todo disable until we get Shib hooked up.
-//		add_action( 'init', array( $this, 'hcommons_shibboleth_autologout' ) );
-
 		add_filter( 'bp_get_taxonomy_term_site_id', array( $this, 'hcommons_filter_bp_taxonomy_storage_site' ), 10, 2 );
 		add_filter( 'wpmn_get_taxonomy_term_site_id', array( $this, 'hcommons_filter_hc_taxonomy_storage_site' ), 10, 2 );
 		add_action( 'bp_after_has_members_parse_args', array( $this, 'hcommons_set_members_query' ) );
@@ -103,12 +100,6 @@ class Humanities_Commons {
 		add_filter( 'groups_get_groups', array( $this, 'hcommons_groups_get_groups' ), 10, 2 );
 		add_action( 'groups_create_group_step_save_group-details', array( $this, 'hcommons_set_group_type' ) );
 		add_action( 'groups_create_group_step_save_group-details', array( $this, 'hcommons_set_group_mla_oid' ) );
-		add_action( 'shibboleth_set_user_roles', array( $this, 'hcommons_set_user_member_types' ) );
-		add_action( 'shibboleth_set_user_roles', array( $this, 'hcommons_maybe_set_user_role_for_site' ) );
-		add_action( 'shibboleth_set_user_roles', array( $this, 'hcommons_set_shibboleth_based_user_meta' ) );
-		add_action( 'shibboleth_set_user_roles', array( $this, 'hcommons_invite_anyone_activate_user' ) );
-		add_action( 'shibboleth_set_user_roles', array( $this, 'hcommons_sync_bp_profile' ) );
-		add_filter( 'shibboleth_user_email', array( $this, 'hcommons_set_shibboleth_based_user_email' ) );
 		add_filter( 'invite_anyone_send_follow_requests_on_acceptance', '__return_false' );
 		add_filter( 'bp_before_has_blogs_parse_args', array( $this, 'hcommons_set_network_blogs_query' ) );
 		add_filter( 'bp_get_total_blog_count', array( $this, 'hcommons_get_total_blog_count' ) );
@@ -123,7 +114,6 @@ class Humanities_Commons {
 		// doesn't work with local users without a member type, but also doesn't work when member type & blog_id don't match?
 		// should always return true for any logged-in user, since visibility controls on xprofile fields are not restricted
 		//add_filter( 'bp_current_user_can', array( $this, 'hcommons_check_site_member_can' ), 10, 4 );
-		add_filter( 'shibboleth_user_role', array( $this, 'hcommons_check_user_site_membership' ) );
 		add_filter( 'bp_get_groups_directory_permalink', array( $this, 'hcommons_set_groups_directory_permalink' ) );
 		add_filter( 'bp_get_group_permalink', array( $this, 'hcommons_set_group_permalink' ), 10, 2 );
 		add_filter( 'bp_core_get_user_domain', array( $this, 'hcommons_set_members_directory_permalink' ), 10, 4 );
@@ -137,7 +127,16 @@ class Humanities_Commons {
 
 		add_filter( 'bp_get_group_join_button', array( $this, 'hcommons_check_bp_get_group_join_button' ), 10, 2 );
 
-		// these require shibboleth
+		// @todo re-enable once we get Shibboleth setup these require shibboleth
+		/*
+		add_action( 'init', array( $this, 'hcommons_shibboleth_autologout' ) );
+		add_action( 'shibboleth_set_user_roles', array( $this, 'hcommons_set_user_member_types' ) );
+		add_action( 'shibboleth_set_user_roles', array( $this, 'hcommons_maybe_set_user_role_for_site' ) );
+		add_action( 'shibboleth_set_user_roles', array( $this, 'hcommons_set_shibboleth_based_user_meta' ) );
+		add_action( 'shibboleth_set_user_roles', array( $this, 'hcommons_invite_anyone_activate_user' ) );
+		add_action( 'shibboleth_set_user_roles', array( $this, 'hcommons_sync_bp_profile' ) );
+		add_filter( 'shibboleth_user_email', array( $this, 'hcommons_set_shibboleth_based_user_email' ) );
+		add_filter( 'shibboleth_user_role', array( $this, 'hcommons_check_user_site_membership' ) );
 		add_action( 'wp_login_failed', array( $this, 'hcommons_login_failed' ) );
 		//add_filter( 'wp_safe_redirect_fallback', array( $this, 'hcommons_remove_admin_redirect' ) );
 		//add_filter( 'login_redirect', array( $this, 'hcommons_remove_admin_redirect' ) );
@@ -145,6 +144,7 @@ class Humanities_Commons {
 		//add_action( 'login_init', array( $this, 'hcommons_login_init' ) );
 		add_filter( 'site_option_shibboleth_login_url', [ $this, 'hcommons_filter_site_option_shibboleth_urls' ] );
 		add_filter( 'site_option_shibboleth_logout_url', [ $this, 'hcommons_filter_site_option_shibboleth_urls' ] );
+		*/
 
 		add_filter( 'bp_get_signup_page', array( $this, 'hcommons_register_url' ) );
 		add_action( 'pre_user_query', array( &$this, 'hcommons_filter_site_users_only' ) ); // do_action_ref_array() is used for pre_user_query
