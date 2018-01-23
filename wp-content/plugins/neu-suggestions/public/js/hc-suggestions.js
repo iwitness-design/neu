@@ -32,7 +32,7 @@ window.hc_suggestions  = {
 	 */
 	load_results: function( params, target ) {
 		var loader_img = $(
-			'<img class="loader" src="/app/plugins/hc-suggestions/public/images/ajax-loader.gif" alt="Loading...">'
+			'<img class="loader" src="/wp-content/plugins/neu-suggestions/public/images/ajax-loader.gif" alt="Loading...">'
 		);
 
 		params.cache_buster = Date.now();
