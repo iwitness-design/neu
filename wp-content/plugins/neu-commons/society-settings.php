@@ -25,6 +25,15 @@ function hcommons_register_member_types() {
 			'has_directory' => 'globalresilience'
 		) );
 	bp_register_member_type(
+		'lynxnet',
+		array(
+			'labels'        => array(
+				'name'          => 'LN',
+				'singular_name' => 'LN',
+			),
+			'has_directory' => 'lynxnet'
+		) );
+	bp_register_member_type(
 		'nc',
 		array(
 			'labels'        => array(
@@ -46,6 +55,15 @@ function hcommons_register_group_types() {
 				'singular_name' => 'GR',
 			),
 			'has_directory' => 'globalresilience'
+		) );
+	bp_groups_register_group_type(
+		'lynxnet',
+		array(
+			'labels'        => array(
+				'name'          => 'LN',
+				'singular_name' => 'LN',
+			),
+			'has_directory' => 'lynxnet'
 		) );
 	bp_groups_register_group_type(
 		'nc',
