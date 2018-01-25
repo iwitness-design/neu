@@ -45,7 +45,7 @@ $society_id = Humanities_Commons::$society_id;
 
 		<div class="item-list-tabs" role="navigation">
 			<ul>
-				<?php if ( ! empty( $society_id ) && 'hc' === $society_id ) : ?>
+				<?php if ( ! empty( $society_id ) && 'nc' === $society_id ) : ?>
 					<li class="selected" id="groups-all"><a href="<?php bp_groups_directory_permalink(); ?>"><?php printf( __( 'All Groups <span>%s</span>', 'boss' ), bp_get_total_group_count() ); ?></a></li>
 				<?php endif; ?>
 
