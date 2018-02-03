@@ -127,7 +127,7 @@ class Humanities_Commons {
 
 		add_filter( 'bp_get_group_join_button', array( $this, 'hcommons_check_bp_get_group_join_button' ), 10, 2 );
 
-		add_action( 'init', array( $this, 'hcommons_shibboleth_autologout' ) );
+//		add_action( 'init', array( $this, 'hcommons_shibboleth_autologout' ) );
 		add_action( 'wp_login_failed', array( $this, 'hcommons_login_failed' ) );
 //		add_filter( 'wp_safe_redirect_fallback', array( $this, 'hcommons_remove_admin_redirect' ) );
 //		add_filter( 'login_redirect', array( $this, 'hcommons_remove_admin_redirect' ) );
