@@ -127,9 +127,17 @@ class Humanities_Commons {
 
 		add_filter( 'bp_get_group_join_button', array( $this, 'hcommons_check_bp_get_group_join_button' ), 10, 2 );
 
+		add_action( 'init', array( $this, 'hcommons_shibboleth_autologout' ) );
+		add_action( 'wp_login_failed', array( $this, 'hcommons_login_failed' ) );
+//		add_filter( 'wp_safe_redirect_fallback', array( $this, 'hcommons_remove_admin_redirect' ) );
+//		add_filter( 'login_redirect', array( $this, 'hcommons_remove_admin_redirect' ) );
+		add_filter( 'shibboleth_session_active', array( $this, 'hcommons_shibboleth_session_active' ) );
+//		add_action( 'login_init', array( $this, 'hcommons_login_init' ) );
+		add_filter( 'site_option_shibboleth_login_url', [ $this, 'hcommons_filter_site_option_shibboleth_urls' ] );
+		add_filter( 'site_option_shibboleth_logout_url', [ $this, 'hcommons_filter_site_option_shibboleth_urls' ] );
+
 		// @todo re-enable once we get Shibboleth setup these require shibboleth
 		/*
-		add_action( 'init', array( $this, 'hcommons_shibboleth_autologout' ) );
 		add_action( 'shibboleth_set_user_roles', array( $this, 'hcommons_set_user_member_types' ) );
 		add_action( 'shibboleth_set_user_roles', array( $this, 'hcommons_maybe_set_user_role_for_site' ) );
 		add_action( 'shibboleth_set_user_roles', array( $this, 'hcommons_set_shibboleth_based_user_meta' ) );
@@ -137,13 +145,6 @@ class Humanities_Commons {
 		add_action( 'shibboleth_set_user_roles', array( $this, 'hcommons_sync_bp_profile' ) );
 		add_filter( 'shibboleth_user_email', array( $this, 'hcommons_set_shibboleth_based_user_email' ) );
 		add_filter( 'shibboleth_user_role', array( $this, 'hcommons_check_user_site_membership' ) );
-		add_action( 'wp_login_failed', array( $this, 'hcommons_login_failed' ) );
-		//add_filter( 'wp_safe_redirect_fallback', array( $this, 'hcommons_remove_admin_redirect' ) );
-		//add_filter( 'login_redirect', array( $this, 'hcommons_remove_admin_redirect' ) );
-		add_filter( 'shibboleth_session_active', array( $this, 'hcommons_shibboleth_session_active' ) );
-		//add_action( 'login_init', array( $this, 'hcommons_login_init' ) );
-		add_filter( 'site_option_shibboleth_login_url', [ $this, 'hcommons_filter_site_option_shibboleth_urls' ] );
-		add_filter( 'site_option_shibboleth_logout_url', [ $this, 'hcommons_filter_site_option_shibboleth_urls' ] );
 		*/
 
 		add_filter( 'bp_get_signup_page', array( $this, 'hcommons_register_url' ) );
@@ -1497,7 +1498,7 @@ class Humanities_Commons {
 	public function hcommons_login_failed( $username ) {
 
 		global $wpdb;
-		$prefix   = $wpdb->get_blog_prefix();
+
 		$referrer = $_SERVER['HTTP_REFERER'];
 		hcommons_write_error_log( 'info', '****LOGIN_FAILED****-' . $_SERVER['HTTP_REFERER'] . ' ' . $_SERVER['HTTP_X_FORWARDED_FOR'] . ' ' . $_SERVER['HTTP_EMPLOYEENUMBER'] );
 		if ( ! empty( $referrer ) && strstr( $referrer, 'idp/profile/SAML2/Redirect/SSO?' ) ) {
@@ -1506,22 +1507,6 @@ class Humanities_Commons {
 				exit();
 			}
 		}
-		/* Maybe this can go away for good now
-		//
-		// Otherwise, we assume we have an active session coming in as a visitor.
-		$username = $_SERVER['HTTP_EMPLOYEENUMBER']; //TODO Why is the username parameter empty?
-		$user = get_user_by( 'login', $username );
-		$user_id = $user->ID;
-		$visitor_notice = get_user_meta( $user_id, $prefix . 'commons_visitor', true );
-		if ( ( empty( $visitor_notice ) ) && ! strstr( $_SERVER['REQUEST_URI'], '/not-a-member' ) ) {
-			hcommons_write_error_log( 'info', '****LOGIN_FAILED_FIRST_TIME_NOTICE****-' . $username . '-' . $_SERVER['HTTP_EPPN'] . '-' .
-				$_SERVER['HTTP_X_FORWARDED_HOST'] . '-' . var_export( $prefix, true ) );
-
-			update_user_meta( $user_id, $prefix . 'commons_visitor', 'Y' );
-			wp_redirect( 'https://' . $_SERVER['HTTP_X_FORWARDED_HOST'] . '/not-a-member' );
-			exit();
-		}
-		*/
 
 	}
 
@@ -1553,7 +1538,7 @@ class Humanities_Commons {
 	 */
 	public function hcommons_shibboleth_autologout() {
 		if ( is_user_logged_in() && ! shibboleth_session_active() ) {
-			$logout_url = shibboleth_get_option( 'shibboleth_logout_url' );
+			$logout_url = get_site_option( 'shibboleth_logout_url' );
 			wp_logout();
 			wp_redirect( $logout_url );
 			exit;
@@ -1601,7 +1586,7 @@ class Humanities_Commons {
 	public function hcommons_shibboleth_session_active( $active ) {
 
 		if ( $active ) {
-			self::$shib_session_id = $_SERVER['HTTP_SHIB_SESSION_ID'];
+			self::$shib_session_id = $_SERVER['Shib-Session-ID'];
 		}
 
 		return $active;
