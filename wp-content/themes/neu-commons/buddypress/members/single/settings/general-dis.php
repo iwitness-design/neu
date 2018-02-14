@@ -68,7 +68,7 @@ do_action( 'bp_before_member_settings_template' ); ?>
 	}
 ?>
 <br />
-<p>Missing a membership? Let us know <a href="mailto:hello@hcommons.org">here</a>.</p>
+<p>Missing a membership? Let us know <a href="mailto:p.yott@northeastern.edu">here</a>.</p>
 <?php } ?>
 <br />
 <h4>Current Log-in Methods</h4>
@@ -80,7 +80,7 @@ do_action( 'bp_before_member_settings_template' ); ?>
 	} ?>
 </ul>
 <br />
-<?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) {
+<?php if ( 0 && is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { // disable alternate login for now. TM
 	$registry_url = constant( 'REGISTRY_SERVER_URL' ) . '/Shibboleth.sso/Login?SAMLDS=1';
 	$discovery_url = urlencode( constant( 'REGISTRY_SERVER_URL' ) . '/discovery_service_registry_only/index.php' );
 	$society_account_link_constant = strtoupper( Humanities_Commons::$society_id ) . '_ACCOUNT_LINK_URL';
