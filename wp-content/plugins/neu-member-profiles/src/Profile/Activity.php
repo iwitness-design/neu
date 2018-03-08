@@ -21,7 +21,7 @@ class Activity {
 	 * formats the output of existing activity records
 	 */
 	public static function format_activity_action_updated_profile( $action, $activity ) {
-		if ( ! empty( Humanities_Commons::$main_network->domain ) && 'hc' === Humanities_Commons::$society_id ) {
+		if ( ! empty( Humanities_Commons::$main_network->domain ) && NEU_DEFAULT_SOCIETY === Humanities_Commons::$society_id ) {
 			$hc_profile_link = trailingslashit(
 				trailingslashit( 'https://' . Humanities_Commons::$main_network->domain ) .
 				trailingslashit(  bp_get_members_root_slug() . '/' . bp_core_get_username( $activity->user_id ) ) .

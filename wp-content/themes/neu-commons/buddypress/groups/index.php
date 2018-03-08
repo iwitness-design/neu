@@ -45,11 +45,13 @@ $society_id = Humanities_Commons::$society_id;
 
 		<div class="item-list-tabs" role="navigation">
 			<ul>
-				<?php if ( ! empty( $society_id ) && 'nc' === $society_id ) : ?>
+				<?php if ( ! empty( $society_id ) && NEU_DEFAULT_SOCIETY === $society_id ) : ?>
 					<li class="selected" id="groups-all"><a href="<?php bp_groups_directory_permalink(); ?>"><?php printf( __( 'All Groups <span>%s</span>', 'boss' ), bp_get_total_group_count() ); ?></a></li>
 				<?php endif; ?>
 
-				<li id="groups-society"><a href="<?php bp_groups_directory_permalink(); ?>"><?php printf( __( '%s Groups', 'boss' ), strtoupper( $society_id ) ); ?></a></li>
+				<?php if ( count( neu_get_societies() ) > 1 ) : ?>
+					<li id="groups-society"><a href="<?php bp_groups_directory_permalink(); ?>"><?php printf( __( '%s Groups', 'boss' ), strtoupper( $society_id ) ); ?></a></li>
+				<?php endif; ?>
 
 				<?php if ( is_user_logged_in() && bp_get_total_group_count_for_user( bp_loggedin_user_id() ) ) : ?>
 					<li id="groups-personal"><a href="<?php echo bp_loggedin_user_domain() . bp_get_groups_slug() . '/my-groups/'; ?>"><?php printf( __( 'My Groups <span>%s</span>', 'boss' ), bp_get_total_group_count_for_user( bp_loggedin_user_id() ) ); ?></a></li>
