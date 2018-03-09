@@ -1299,10 +1299,12 @@ class Humanities_Commons {
 			return $member_permalink;
 		}
 
+		$all_types = bp_get_member_types();
+
 		//hcommons_write_error_log( 'info', '****SET_MEMBERS_DIRECTORY_PERMALINK****-'.var_export( $member_permalink, true ) );
 		$member_types = bp_get_member_type( $user_id, false );
 
-		if ( in_array( self::$society_id, $member_types ) ) {
+		if ( in_array( self::$society_id, (array) $member_types ) || count( $all_types ) < 2 ) {
 			return $member_permalink;
 		}
 		$after_domain = bp_core_enable_root_profiles() ? $user_login : bp_get_members_root_slug() . '/' . $user_login;

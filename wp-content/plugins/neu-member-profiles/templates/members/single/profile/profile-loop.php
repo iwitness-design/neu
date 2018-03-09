@@ -33,7 +33,6 @@ do_action( 'bp_before_profile_loop_content' );
 	<div class="right">
 		<?php echo $template->get_field( Profile::XPROFILE_FIELD_NAME_ABOUT ) ?>
 		<?php echo $template->get_field( Profile::XPROFILE_FIELD_NAME_EDUCATION ) ?>
-		<?php echo $template->get_field( Profile::XPROFILE_FIELD_NAME_CV ) ?>
 		<?php echo $template->get_field( Profile::XPROFILE_FIELD_NAME_CORE_DEPOSITS ) ?>
 		<?php echo $template->get_field( Profile::XPROFILE_FIELD_NAME_PUBLICATIONS ) ?>
 		<?php echo $template->get_field( Profile::XPROFILE_FIELD_NAME_PROJECTS ) ?>
