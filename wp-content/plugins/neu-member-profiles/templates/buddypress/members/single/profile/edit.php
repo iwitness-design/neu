@@ -26,6 +26,7 @@ do_action( 'bp_before_profile_edit_content' );
 		</div>
 		<div class="academic-interests editable">
 			<h4>Academic Interests</h4>
+			<p class="description">Select your academic interests from the list below. You may also add interests if they do not exist. Separate new interests with a comma.</p>
 			<?php echo $template->get_academic_interests_edit(); ?>
 		</div>
 		<div class="commons-groups wordblock">
