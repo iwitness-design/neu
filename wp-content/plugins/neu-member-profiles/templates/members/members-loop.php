@@ -17,13 +17,16 @@ use MLA\Commons\Profile\Academic_Interests;
 
 <?php
 
+$member_type_filter = ( isset( $_COOKIE[ 'member_directory_member_type' ] ) ) ?
+	'&member_type=' . $_COOKIE[ 'member_directory_member_type' ] :
+	'';
 $interest_query_filter = ( isset( $_COOKIE[ Academic_Interests::$cookie_name ] ) ) ?
 	'&meta_key=academic_interests&meta_value=' . $_COOKIE[ Academic_Interests::$cookie_name ] :
 	'';
 
 ?>
 
-<?php if ( bp_has_members( bp_ajax_querystring( 'members' ) . $interest_query_filter ) ) : ?>
+<?php if ( bp_has_members( bp_ajax_querystring( 'members' ) . $interest_query_filter . $member_type_filter ) ) : ?>
 
 	<div id="pag-top" class="pagination">
 

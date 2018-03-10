@@ -45,6 +45,10 @@
 					<li id="members-personal"><a href="<?php echo bp_loggedin_user_domain() . bp_get_friends_slug() . '/my-friends/'; ?>"><?php printf( __( 'My Friends <span>%s</span>', 'boss' ), bp_get_total_friend_count( bp_loggedin_user_id() ) ); ?></a></li>
 				<?php endif; ?>
 
+				<?php foreach ( bp_get_member_types( array(), 'objects' ) as $type => $settings ) : ?>
+					<li id="members-<?php echo esc_attr( $type ); ?>"><a href="#" class="member-type" data-type="<?php echo esc_attr( $type ); ?>"><?php echo $settings->labels['name']; ?></a></li>
+				<?php endforeach; ?>
+
 				<?php do_action( 'bp_members_directory_member_types' ); ?>
 
 				<?php do_action( 'bp_members_directory_member_sub_types' ); ?>

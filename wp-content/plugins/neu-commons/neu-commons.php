@@ -313,7 +313,7 @@ class Humanities_Commons {
 			echo "<ul>";
 
 			//output member types user currently has
-			foreach ( $member_types as $type ) {
+			foreach ( (array) $member_types as $type ) {
 
 				echo "<li>" . strtoupper( $type ) . "</li>";
 

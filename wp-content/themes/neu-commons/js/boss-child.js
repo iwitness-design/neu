@@ -55,6 +55,21 @@
     // (without this, results on page can be from the wrong tab despite which is "selected")
     if ($('#members-dir-list, #groups-dir-list').length > 0) {
       $('.item-list-tabs .selected a').trigger('click');
+
+      $('#members-directory-form a').on('mousedown', function() {
+        var type = $(this).data('type');
+
+        if ( undefined === type ) {
+          type = '';
+        }
+
+        $.cookie('member_directory_member_type', type, {
+          path  : '/',
+          secure: (
+          'https:' === window.location.protocol
+          )
+        });
+      });
     }
 
     // disable this since it breaks in safari and isn't really useful anyway
