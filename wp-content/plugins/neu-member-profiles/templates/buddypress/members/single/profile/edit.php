@@ -11,6 +11,15 @@ do_action( 'bp_before_profile_edit_content' );
 
 <form action="<?php bp_the_profile_group_edit_form_action(); ?>" method="post" id="profile-edit-form" class="standard-form <?php bp_the_profile_group_slug(); ?>">
 
+	<div class="edit-action-bar">
+		<?php do_action( 'template_notices' ); ?>
+
+		<div class="generic-button">
+			<input type="submit" value="Back to View Mode" id="cancel">
+			<input type="submit" name="profile-group-edit-submit" id="profile-group-edit-submit" value="Save Changes" />
+		</div>
+	</div>
+
 	<div class="left">
 		<div class="synced">
 			<?php echo $template->get_edit_field( Profile::XPROFILE_FIELD_NAME_NAME ) ?>
@@ -71,15 +80,6 @@ do_action( 'bp_before_profile_edit_content' );
 		<div class="memberships editable hideable">
 			<h4><?php echo Profile::$display_names[ Profile::XPROFILE_FIELD_NAME_MEMBERSHIPS ] ?></h4>
 			<?php echo $template->get_edit_field( Profile::XPROFILE_FIELD_NAME_MEMBERSHIPS ) ?>
-		</div>
-	</div>
-
-	<div class="edit-action-bar">
-		<?php do_action( 'template_notices' ); ?>
-
-		<div class="generic-button">
-			<input type="submit" value="Back to View Mode" id="cancel">
-			<input type="submit" name="profile-group-edit-submit" id="profile-group-edit-submit" value="Save Changes" />
 		</div>
 	</div>
 

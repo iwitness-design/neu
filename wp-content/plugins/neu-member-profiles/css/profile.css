@@ -55,6 +55,7 @@
 
 .profile #profile-main form {
   display: flex;
+  flex-flow: row wrap;
 }
 
 .profile #profile-main .left {
@@ -167,9 +168,6 @@
 }
 
 .profile-edit .edit-action-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
   background-color: #0e223e;
   text-align: center;
