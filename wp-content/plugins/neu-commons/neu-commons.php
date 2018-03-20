@@ -132,13 +132,13 @@ class Humanities_Commons {
 		add_filter( 'bp_get_group_join_button', array( $this, 'hcommons_check_bp_get_group_join_button' ), 10, 2 );
 
 //		add_action( 'init', array( $this, 'hcommons_shibboleth_autologout' ) );
-		add_action( 'wp_login_failed', array( $this, 'hcommons_login_failed' ) );
+//		add_action( 'wp_login_failed', array( $this, 'hcommons_login_failed' ) );
 //		add_filter( 'wp_safe_redirect_fallback', array( $this, 'hcommons_remove_admin_redirect' ) );
 //		add_filter( 'login_redirect', array( $this, 'hcommons_remove_admin_redirect' ) );
-		add_filter( 'shibboleth_session_active', array( $this, 'hcommons_shibboleth_session_active' ) );
+//		add_filter( 'shibboleth_session_active', array( $this, 'hcommons_shibboleth_session_active' ) );
 //		add_action( 'login_init', array( $this, 'hcommons_login_init' ) );
-		add_filter( 'site_option_shibboleth_login_url', [ $this, 'hcommons_filter_site_option_shibboleth_urls' ] );
-		add_filter( 'site_option_shibboleth_logout_url', [ $this, 'hcommons_filter_site_option_shibboleth_urls' ] );
+//		add_filter( 'site_option_shibboleth_login_url', [ $this, 'hcommons_filter_site_option_shibboleth_urls' ] );
+//		add_filter( 'site_option_shibboleth_logout_url', [ $this, 'hcommons_filter_site_option_shibboleth_urls' ] );
 
 		// @todo re-enable once we get Shibboleth setup these require shibboleth
 		/*
@@ -169,7 +169,7 @@ class Humanities_Commons {
 		add_filter( 'bp_get_new_group_enable_forum', array( $this, 'hcommons_get_new_group_enable_forum' ) );
 		add_action( 'wp_ajax_hcommons_settings_general', array( $this, 'hcommons_settings_general_ajax' ) );
 		add_filter( 'bp_before_activity_get_parse_args', array( $this, 'hcommons_set_network_admin_activities_query' ) );
-		add_action( 'init', array( $this, 'hcommons_remove_bp_settings_general' ) );
+//		add_action( 'init', array( $this, 'hcommons_remove_bp_settings_general' ) );
 		add_action( 'bp_before_group_settings_creation_step', array( $this, 'hcommons_groups_group_before_save' ) );
 		add_action( 'bp_groups_admin_meta_boxes', array( $this, 'hcommons_remove_group_type_meta_boxes' ) );
 		add_action( 'bp_groups_admin_meta_boxes', array( $this, 'hcommons_add_group_type_meta_box' ) );
