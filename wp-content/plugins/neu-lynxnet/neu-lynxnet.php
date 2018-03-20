@@ -39,6 +39,7 @@ class NEU_LynxNet {
 	 */
 	protected function __construct() {
 		add_filter( 'neu_get_societies', array( $this, 'lynxnet_society' ) );
+		add_action( 'add_user_to_blog', array( $this, 'set_member_type' ) );
 	}
 
 	/**
@@ -60,6 +61,10 @@ class NEU_LynxNet {
 				'has_directory' => 'lynxnet'
 			),
 		);
+	}
+
+	public function set_member_type( $user_id ) {
+		bp_set_member_type( $user_id, Humanities_Commons::$society_id );
 	}
 
 }

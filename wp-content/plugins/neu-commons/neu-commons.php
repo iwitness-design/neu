@@ -414,7 +414,7 @@ class Humanities_Commons {
 
 	public function hcommons_set_members_query( $args ) {
 
-		if ( ! bp_is_members_directory() || ( isset( $args['scope'] ) && 'society' === $args['scope'] ) ) {
+		if ( ( empty( $args['include'] ) && ! bp_is_members_directory() ) || ( isset( $args['scope'] ) && 'society' === $args['scope'] ) ) {
 			$args['member_type'] = self::$society_id;
 		}
 
@@ -2124,6 +2124,8 @@ class Humanities_Commons {
 	 * @return array $memberships
 	 */
 	public static function hcommons_get_user_memberships() {
+
+		return array();
 
 		$memberships       = array();
 		$member_types      = bp_get_member_types();

@@ -388,7 +388,7 @@ function buddyboss_entry_meta( $show_author = true, $show_date = true, $show_com
 	];
 
 	switch ( $post->post_type ) {
-		case EP_BP_API::GROUP_TYPE_NAME:
+		case 'Groups':
 			$args['type'] = 'group';
 			$args = array_merge( $args, [
 				'avatar_dir' => 'group-avatars',
@@ -400,7 +400,7 @@ function buddyboss_entry_meta( $show_author = true, $show_date = true, $show_com
 		case 'topic':
 		case 'humcore_deposit':
 			$args['item_id'] = $post->post_author;
-		case EP_BP_API::MEMBER_TYPE_NAME:
+		case 'Members':
 			$args['type'] = 'user';
 			$avatar = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( $post->permalink ), bp_core_fetch_avatar( $args ) );
 			break;
