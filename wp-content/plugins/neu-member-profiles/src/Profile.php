@@ -248,7 +248,7 @@ class Profile {
 	 * scripts/styles that apply on profile & related pages only
 	 */
 	public function enqueue_local_scripts() {
-		wp_enqueue_style( 'hc-members-profile-local', plugins_url() . '/neu-member-profiles/css/profile.css' );
+		wp_enqueue_style( 'hc-members-profile-local', plugins_url() . '/neu-member-profiles/css/profile.css', array(), '1' );
 		wp_enqueue_script( 'hc-members-profile-jqdmh', plugins_url() . '/neu-member-profiles/js/lib/jquery.dynamicmaxheight.min.js' );
 		wp_enqueue_script( 'hc-members-profile-local', plugins_url() . '/neu-member-profiles/js/main.js' );
 
