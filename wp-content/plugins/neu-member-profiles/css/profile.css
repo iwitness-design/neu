@@ -169,9 +169,14 @@
 
 .profile-edit .edit-action-bar {
   width: 100%;
-  background-color: #0e223e;
-  text-align: center;
+  background-color: #ef2a1d;
+  padding: 5px 10px;
   z-index: 1;
+  color: white;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .profile-edit .academic-interests .description {

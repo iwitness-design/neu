@@ -13,6 +13,7 @@ do_action( 'bp_before_profile_edit_content' );
 
 	<div class="edit-action-bar">
 		<?php do_action( 'template_notices' ); ?>
+		<p><?php _e( 'YOU ARE CURRENTLY IN \'EDIT\' MODE' ); ?></p>
 
 		<div class="generic-button">
 			<input type="submit" value="Back to View Mode" id="cancel">
@@ -86,6 +87,15 @@ do_action( 'bp_before_profile_edit_content' );
 	<input type="hidden" name="field_ids" id="field_ids" value="<?php bp_the_profile_field_ids(); ?>" />
 
 	<?php wp_nonce_field( 'bp_xprofile_edit' ); ?>
+
+	<div class="edit-action-bar">
+		<p><?php _e( 'YOU ARE CURRENTLY IN \'EDIT\' MODE' ); ?></p>
+
+		<div class="generic-button">
+			<input type="submit" value="Back to View Mode" id="cancel">
+			<input type="submit" name="profile-group-edit-submit" id="profile-group-edit-submit" value="Save Changes" />
+		</div>
+	</div>
 
 </form>
 
