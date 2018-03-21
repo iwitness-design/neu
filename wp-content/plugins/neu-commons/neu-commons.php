@@ -455,7 +455,7 @@ class Humanities_Commons {
 	 * on members/groups directories, set default scope to society
 	 */
 	function hcommons_set_default_scope_society() {
-		if ( bp_is_groups_directory() || ( bp_is_members_directory() && NEU_DEFAULT_SOCIETY !== self::$society_id ) ) {
+		if ( ( bp_is_groups_directory() && NEU_DEFAULT_SOCIETY !== self::$society_id ) || ( bp_is_members_directory() && NEU_DEFAULT_SOCIETY !== self::$society_id ) ) {
 			$object_name = bp_current_component();
 			$cookie_name = 'bp-' . $object_name . '-scope';
 
