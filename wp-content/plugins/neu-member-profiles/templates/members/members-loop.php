@@ -15,6 +15,9 @@ use MLA\Commons\Profile\Template;
 
 $template = new Template;
 
+// Disable automatic profile filter link. Doesn't work but may be worth fixing later
+remove_filter( 'bp_get_the_profile_field_value', 'xprofile_filter_link_profile_data', 9, 3 );
+
 ?>
 
 <?php do_action( 'bp_before_members_loop' ); ?>
