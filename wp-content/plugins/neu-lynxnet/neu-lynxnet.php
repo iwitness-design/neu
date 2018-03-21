@@ -41,7 +41,7 @@ class NEU_LynxNet {
 		add_filter( 'neu_get_societies', array( $this, 'lynxnet_society' ) );
 		add_action( 'add_user_to_blog', array( $this, 'set_member_type' ) );
 		add_action( 'init', array( $this, 'resources_cpt' ) );
-		add_filter( 'post_link', array( $this, 'resource_link' ), 10, 2 );
+		add_filter( 'post_type_link', array( $this, 'resource_link' ), 10, 2 );
 	}
 
 	/**
