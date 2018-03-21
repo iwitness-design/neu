@@ -104,6 +104,8 @@ class Profile {
 			}
 		}
 
+		add_action( 'bp_after_profile_avatar_upload_content', [ $this, 'avatar_upload_warning' ] );
+
 		add_filter( 'bp_xprofile_get_field_types', [ $this, 'filter_xprofile_get_field_types' ] );
 
 		add_filter( 'xprofile_allowed_tags', [ $this, 'filter_xprofile_allowed_tags' ] );
@@ -171,6 +173,15 @@ class Profile {
 			// this breaks content containing [] characters (unless they're using the feature it provides, which our data is not)
 			remove_filter( 'bp_get_the_profile_field_value', 'cpfb_add_brackets', 999, 1 );
 		}
+	}
+
+	/**
+	 * Add warning to profile photo tab.
+	 *
+	 * @author Tanner Moushey
+	 */
+	public function avatar_upload_warning() {
+		printf( __( '<p class="warning">Images will be cropped after upload. Please use a GIF, PNG, or JPG file. Max upload size is %sKB.</p>' ), get_site_option( 'fileupload_maxk', 1024 ) );
 	}
 
 	/**
