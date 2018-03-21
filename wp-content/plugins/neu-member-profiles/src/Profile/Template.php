@@ -279,12 +279,13 @@ class Template {
 	/**
 	 * TODO find a way to directly access the field value without looping
 	 */
-	public function get_xprofile_field_data( $field_name = '' ) {
+	public function get_xprofile_field_data( $field_name = '', $user_id = null ) {
 		global $profile_template;
 
 		$args = [
-			'profile_group_id' => Profile::get_instance()->xprofile_group->id,
+			'profile_group_id'  => Profile::get_instance()->xprofile_group->id,
 			'hide_empty_fields' => false, // some custom fields are "empty" by design e.g. 'CORE Deposits'
+			'user_id'           => ( $user_id ) ?: bp_displayed_user_id(),
 		];
 
 		$retval = '';

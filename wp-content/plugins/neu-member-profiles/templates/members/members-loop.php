@@ -10,6 +10,10 @@
  */
 
 use MLA\Commons\Profile\Academic_Interests;
+use MLA\Commons\Profile;
+use MLA\Commons\Profile\Template;
+
+$template = new Template;
 
 ?>
 
@@ -68,6 +72,9 @@ $interest_query_filter = ( isset( $_COOKIE[ Academic_Interests::$cookie_name ] )
 			<div class="item">
 				<div class="item-title">
 					<a href="<?php bp_member_permalink(); ?>"><?php bp_member_name(); ?></a>
+					<h4><?php echo $template->get_xprofile_field_data( Profile::$display_names[ Profile::XPROFILE_FIELD_NAME_TITLE ], bp_get_member_user_id() ); ?></h4>
+					<h4><?php echo $template->get_xprofile_field_data( Profile::XPROFILE_FIELD_NAME_INSTITUTIONAL_OR_OTHER_AFFILIATION, bp_get_member_user_id() ); ?></h4>
+
 
 					<?php if ( bp_get_member_latest_update() ) : ?>
 
