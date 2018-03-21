@@ -73,7 +73,7 @@
     }
 
     // disable this since it breaks in safari and isn't really useful anyway
-    $.fn.jRMenuMore = function () {}
+//    $.fn.jRMenuMore = function () {}
 
     $('form#hc-terms-acceptance-form input[type=submit][name=hc_accept_terms_continue]').on('click', function(){
             if ( $('form#hc-terms-acceptance-form input[type=checkbox][name=hc_accept_terms]').is(':checked') ) {

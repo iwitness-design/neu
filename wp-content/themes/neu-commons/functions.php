@@ -6,6 +6,7 @@
  * Add your own functions in this file.
  */
 
+
 if ( ! defined( 'BP_AVATAR_THUMB_WIDTH' ) ) define ( 'BP_AVATAR_THUMB_WIDTH', 150 );
 if ( ! defined( 'BP_AVATAR_THUMB_HEIGHT' ) ) define ( 'BP_AVATAR_THUMB_HEIGHT', 150 );
 
@@ -56,7 +57,7 @@ add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_style', 200 );
  * Enqueues scripts for child theme front-end.
  */
 function boss_child_theme_enqueue_script() {
-	wp_enqueue_script( 'boss-child-custom', get_stylesheet_directory_uri() . '/js/boss-child.js' );
+	wp_enqueue_script( 'boss-child-custom', get_stylesheet_directory_uri() . '/js/boss-child.js', array(), wp_get_theme()->Version );
 }
 // priority 200 to ensure this loads after redux which uses 150
 add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_script' );
