@@ -109,7 +109,7 @@ class NEU_LynxNet {
 			'hierarchical'       => false,
 			'menu_position'      => null,
 			'menu_icon'          => 'dashicons-book-alt',
-			'supports'           => array( 'title', 'editor' )
+			'supports'           => array( 'title', 'editor', 'author' )
 		);
 
 		register_post_type( 'resource', $args );
