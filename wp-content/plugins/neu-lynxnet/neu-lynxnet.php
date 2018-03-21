@@ -42,6 +42,8 @@ class NEU_LynxNet {
 		add_action( 'add_user_to_blog', array( $this, 'set_member_type' ) );
 		add_action( 'init', array( $this, 'resources_cpt' ) );
 		add_filter( 'post_type_link', array( $this, 'resource_link' ), 10, 2 );
+
+		add_shortcode( 'neu-repo', array( $this, 'cb_neu_repo' ) );
 	}
 
 	/**
@@ -119,7 +121,7 @@ class NEU_LynxNet {
 	/**
 	 * Use the feed link as the permalink if applicable
 	 *
-	 * @param $permalink
+	 * @param         $permalink
 	 * @param WP_Post $post
 	 *
 	 * @return mixed
@@ -135,5 +137,111 @@ class NEU_LynxNet {
 		}
 
 		return $permalink;
+	}
+
+	public function cb_neu_repo( $atts ) {
+		$atts = wp_parse_args( $atts, array(
+			'page' => 1,
+			'url'  => '',
+		) );
+
+		if ( empty( $atts['url'] ) ) {
+			return;
+		}
+
+		$page = empty( $_GET['repo-page'] ) ? 1 : absint( $_GET['repo-page'] );
+
+		$url = add_query_arg( 'page', $page, esc_url_raw( $atts['url'] ) );
+
+		if ( ! $response = get_transient( md5( $url ) ) ) {
+
+			$response = wp_safe_remote_get( $url );
+			$response = wp_remote_retrieve_body( $response );
+
+			if ( ! $response ) {
+				return;
+			}
+
+			set_transient( md5( $url ), $response, DAY_IN_SECONDS );
+
+		}
+
+		$response = json_decode( $response );
+
+		if ( empty( $response->response->response->docs ) ) {
+			return;
+		}
+
+		$pagination = $response->pagination->table;
+		$docs       = $response->response->response->docs; ?>
+		<style>
+			.repo-docs article {
+				padding: 0 !important;
+				display: flex;
+				flex-flow: row wrap;
+			}
+
+			.repo-docs .featured-image {
+				margin-right: 2rem;
+			}
+
+			.repo-docs h1,
+			.repo-docs h4 {
+				margin: 0 auto;
+			}
+		</style>
+
+		<section class="repo-docs">
+
+			<p>
+				Page <?php echo $pagination->current_page; ?> of <?php echo $pagination->num_pages; ?>
+
+				|
+
+				<?php if ( 1 < $pagination->current_page ) : ?>
+					<a href="<?php echo add_query_arg( 'repo-page', $pagination->current_page - 1, get_permalink() ); ?>">&larr; Previous page</a>
+				<?php endif; ?>
+
+				|
+
+				<?php if ( $pagination->num_pages > $pagination->current_page ) : ?>
+					<a href="<?php echo add_query_arg( 'repo-page', $pagination->current_page + 1, get_permalink() ); ?>">Next page &rarr;</a>
+				<?php endif; ?>
+			</p>
+
+			<?php foreach ( $docs as $doc ) : ?>
+				<article>
+					<?php if ( ! empty( $doc->thumbnail_list_tesim ) ) : ?>
+						<a href="<?php echo esc_url( $doc->identifier_tesim[0] ); ?>" class="featured-image"><img src="https://repository.library.northeastern.edu<?php echo $doc->thumbnail_list_tesim[1]; ?>" /></a>
+					<?php endif; ?>
+					<div class="repo-docs--info">
+						<h1>
+							<a href="<?php echo esc_url( $doc->identifier_tesim[0] ); ?>"><?php echo esc_html( $doc->title_info_0_title_ssi ); ?></a>
+						</h1>
+						<h4><?php echo $doc->system_create_dtsi; ?></h4>
+						<h4><?php echo $doc->personal_creators_tesim[0]; ?></h4>
+					</div>
+				</article>
+			<?php endforeach; ?>
+
+			<p>
+				Page <?php echo $pagination->current_page; ?> of <?php echo $pagination->num_pages; ?>
+
+				|
+
+				<?php if ( 1 < $pagination->current_page ) : ?>
+					<a href="<?php echo add_query_arg( 'repo-page', $pagination->current_page - 1, get_permalink() ); ?>">&larr; Previous page</a>
+				<?php endif; ?>
+
+				|
+
+				<?php if ( $pagination->num_pages > $pagination->current_page ) : ?>
+					<a href="<?php echo add_query_arg( 'repo-page', $pagination->current_page + 1, get_permalink() ); ?>">Next page &rarr;</a>
+				<?php endif; ?>
+			</p>
+
+		</section>
+		<?php
+
 	}
 }
