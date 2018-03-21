@@ -914,19 +914,20 @@ class Humanities_Commons {
 			! bp_is_current_component( 'profile' )
 		) {
 
+
 			$current_network = get_current_site();
-			$network_sites   = wp_get_sites( array( 'network_id' => $current_network->id, 'limit' => 9999 ) );
+			$network_sites   = get_sites( array( 'network_id' => $current_network->id, 'number' => 9999 ) );
 			foreach ( $network_sites as $site ) {
-				if ( $site['blog_id'] != $current_blog_id ) {
-					$blog_ids[] = $site['blog_id'];
+				if ( $site->blog_id != $current_blog_id ) {
+					$blog_ids[] = $site->blog_id;
 				}
 			}
 		} else {
 			//TODO Find a better way, this won't scale to all of HC.
-			$sites = wp_get_sites( array( 'network_id' => null, 'limit' => 9999 ) );
+			$sites = get_sites( array( 'network_id' => null, 'number' => 9999 ) );
 			foreach ( $sites as $site ) {
-				if ( $site['blog_id'] != $current_blog_id ) {
-					$blog_ids[] = $site['blog_id'];
+				if ( $site->blog_id != $current_blog_id ) {
+					$blog_ids[] = $site->blog_id;
 				}
 			}
 		}
