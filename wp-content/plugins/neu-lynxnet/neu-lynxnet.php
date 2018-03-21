@@ -173,7 +173,9 @@ class NEU_LynxNet {
 		}
 
 		$pagination = $response->pagination->table;
-		$docs       = $response->response->response->docs; ?>
+		$docs       = $response->response->response->docs;
+
+		ob_start(); ?>
 		<style>
 			.repo-docs article {
 				padding: 0 !important;
@@ -243,5 +245,6 @@ class NEU_LynxNet {
 		</section>
 		<?php
 
+		return ob_get_clean();
 	}
 }
