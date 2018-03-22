@@ -179,17 +179,19 @@ class NEU_LynxNet {
 		<style>
 			.repo-docs article {
 				padding: 0 !important;
-				display: flex;
-				flex-flow: row wrap;
+				clear: both;
+				margin-bottom: 2rem;
 			}
 
 			.repo-docs .featured-image {
 				margin-right: 2rem;
+				float: left;
 			}
 
 			.repo-docs h1,
 			.repo-docs h4 {
 				margin: 0 auto;
+				clear: none;
 			}
 		</style>
 
@@ -220,8 +222,9 @@ class NEU_LynxNet {
 						<h1>
 							<a href="<?php echo esc_url( $doc->identifier_tesim[0] ); ?>"><?php echo esc_html( $doc->title_info_0_title_ssi ); ?></a>
 						</h1>
-						<h4><?php echo $doc->system_create_dtsi; ?></h4>
+						<h4><?php echo date( 'Y-m-d', strtotime( $doc->system_create_dtsi ) ); ?></h4>
 						<h4><?php echo $doc->personal_creators_tesim[0]; ?></h4>
+						<p><?php echo esc_html( $doc->abstract_tesim[0] ); ?></p>
 					</div>
 				</article>
 			<?php endforeach; ?>
