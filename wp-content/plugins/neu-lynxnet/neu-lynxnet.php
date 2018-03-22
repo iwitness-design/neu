@@ -41,6 +41,7 @@ class NEU_LynxNet {
 		add_filter( 'neu_get_societies', array( $this, 'lynxnet_society' ) );
 		add_action( 'add_user_to_blog', array( $this, 'set_member_type' ) );
 		add_action( 'init', array( $this, 'resources_cpt' ) );
+		add_action( 'pre_get_posts', array( $this, 'author_page_resources' ) );
 		add_filter( 'post_type_link', array( $this, 'resource_link' ), 10, 2 );
 
 		add_shortcode( 'neu-repo', array( $this, 'cb_neu_repo' ) );
@@ -116,6 +117,35 @@ class NEU_LynxNet {
 
 		register_post_type( 'resource', $args );
 
+	}
+
+	/**
+	 * Show 'resources' in the author archive.
+	 *
+	 * @param WP_Query $query
+	 *
+	 * @since  1.0.0
+	 *
+	 * @author Tanner Moushey
+	 */
+	public function author_page_resources( $query ) {
+		if ( ! $query->is_main_query() ) {
+			return;
+		}
+
+		if ( ! $query->is_author ) {
+			return;
+		}
+
+		$post_types = $query->get( 'post_type' );
+
+		if ( ! is_array( $post_types ) ) {
+			$post_types = array( $post_types );
+		}
+
+		$post_types[] = 'resource';
+
+		$query->set( 'post_type', $post_types );
 	}
 
 	/**
